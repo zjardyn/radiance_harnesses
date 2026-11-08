@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
+  "historian": {
+    "opencode": { "model": "radiance/swift15-flash-next" }
+  },
+  "prompt_surface": {
+    "models": {
+      "radiance/gemma4-26b": "light"
+    }
+  }
+}

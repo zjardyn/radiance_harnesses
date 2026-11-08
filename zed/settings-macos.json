@@ -1,0 +1,89 @@
+{
+  "language_models": {
+    "openai_compatible": {
+      "radiance": {
+        "api_url": "http://10.0.0.168:8000/v1",
+        "available_models": [
+          {
+            "name": "swift15-flash-next",
+            "display_name": "Swift 1.5 Flash-Next",
+            "max_tokens": 409600,
+            "max_output_tokens": 16384,
+            "reasoning_effort": "none",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+              "max_tokens_parameter": true
+            }
+          },
+          {
+            "name": "gemma4-26b",
+            "display_name": "Gemma 4 26B",
+            "max_tokens": 131072,
+            "max_output_tokens": 16384,
+            "reasoning_effort": "none",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": true
+            }
+          },
+          {
+            "name": "qwen35",
+            "display_name": "Qwen 3.5",
+            "max_tokens": 131072,
+            "max_output_tokens": 16384,
+            "reasoning_effort": "none",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "agent": {
+    "default_model": {
+      "provider": "radiance",
+      "model": "swift15-flash-next"
+    }
+  },
+  "agent_servers": {
+    "OpenCode Local": {
+      "type": "custom",
+      "command": "/opt/homebrew/bin/opencode",
+      "args": [
+        "acp"
+      ],
+      "env": {
+        "OPENCODE_DISABLE_FREE_MODELS": "1"
+      },
+      "default_config_options": {
+        "model": "radiance/swift15-flash-next:xhigh",
+        "effort": "xhigh",
+        "mode": "build"
+      },
+      "favorite_config_option_values": {
+        "effort": [
+          "low",
+          "medium",
+          "xhigh"
+        ]
+      }
+    }
+  }
+}

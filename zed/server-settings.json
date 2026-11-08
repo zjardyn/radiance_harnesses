@@ -1,0 +1,142 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "opencode-v2": {
+      "default_config_options": {
+        "effort": "xhigh",
+        "model": "radiance/swift15-flash-next"
+      },
+      "type": "registry"
+    }
+  },
+  "ssh_connections": [
+    {
+      "host": "hydra",
+      "args": [
+        "-o",
+        "RemoteCommand=none",
+        "-o",
+        "RequestTTY=no"
+      ],
+      "projects": [
+        {
+          "paths": [
+            "/home/zhood/Data"
+          ]
+        },
+        {
+          "paths": [
+            "/home/zhood/Data/./"
+          ]
+        },
+        {
+          "paths": [
+            "/home/zhood/Data/genomes_2026"
+          ]
+        },
+        {
+          "paths": [
+            "/home/zhood/Data/genomes_2026/supp/neighbourhood_pull/./"
+          ]
+        }
+      ]
+    }
+  ],
+  "agent": {
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "default": "allow"
+        }
+      }
+    },
+    "default_model": {
+      "provider": "radiance",
+      "model": "qwen35",
+      "enable_thinking": false
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "language_models": {
+    "openai_compatible": {
+      "radiance": {
+        "api_url": "http://10.0.0.168:8000/v1",
+        "available_models": [
+          {
+            "name": "qwen35",
+            "max_tokens": 262144,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": true
+            }
+          }
+        ]
+      },
+      "Long-Coding-Contex": {
+        "api_url": "http://10.0.0.168:8000/v1",
+        "available_models": [
+          {
+            "name": "/app/models/ThinkingCap-Qwen3.8-27B-FP8",
+            "max_tokens": 262144,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "reasoning_effort": "medium",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "terminal": {
+    "bell": "off"
+  },
+  "minimap": {
+    "show": "always"
+  },
+  "buffer_font_family": "Comic Code",
+  "file_types": {
+    "markdown": [
+      "*.rmd"
+    ]
+  },
+  "vim_mode": true,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+}

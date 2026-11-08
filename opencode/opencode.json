@@ -1,0 +1,79 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "radiance": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Radiance",
+      "options": {
+        "baseURL": "http://10.0.0.168:8000/v1",
+        "apiKey": "{env:RADIANCE_API_KEY}"
+      },
+      "models": {
+        "swift15-flash-next": {
+          "name": "Swift 1.5 Flash-Next",
+          "limit": {
+            "context": 409600,
+            "output": 16384
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "variants": {
+            "low": {
+              "body": {
+                "reasoning_effort": "low"
+              }
+            },
+            "medium": {
+              "body": {
+                "reasoning_effort": "medium"
+              }
+            },
+            "xhigh": {
+              "body": {
+                "reasoning_effort": "xhigh"
+              }
+            }
+          }
+        },
+        "gemma4-26b": {
+          "name": "Gemma 4 26B",
+          "limit": {
+            "context": 32768,
+            "output": 16384
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "qwen35": {
+          "name": "Qwen 3.5",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        }
+      }
+    }
+  },
+  "model": "radiance/swift15-flash-next:xhigh",
+  "default_agent": "me",
+  "agent": {
+    "gemma": {
+      "mode": "primary",
+      "model": "radiance/gemma4-26b",
+      "prompt": "You are a direct, capable assistant. Keep answers short and plain.\n<!-- magic-context: skip -->"
+    }
+  },
+  "compaction": {
+    "auto": false,
+    "prune": false
+  },
+  "plugin": ["@cortexkit/opencode-magic-context@latest"]
+}

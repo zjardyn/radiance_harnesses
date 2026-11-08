@@ -1,0 +1,4 @@
+# Applied to every zsh invocation (login, interactive, and scripts), so any
+# OpenCode client started from a terminal — TUI, run, mini, --standalone —
+# inherits it, not just the shared background service.
+export OPENCODE_DISABLE_FREE_MODELS=1

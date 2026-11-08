@@ -1,0 +1,26 @@
+# secrets and machine-local state — never commit
+service.json
+*.pre-radiance
+secrets.env
+.env
+*.bak
+.DS_Store
+me_old.md
+
+# OpenCode runtime data
+opencode.db
+opencode.db-*
+auth.json
+log/
+storage/
+tool-output/
+repos/
+
+# Magic Context state (per-machine history, memories, notes, embeddings)
+context.db
+context.db-*
+lkg-recovery-fences/
+models/
+
+node_modules/
+__pycache__/
