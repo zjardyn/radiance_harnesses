@@ -5,7 +5,6 @@ secrets.env
 .env
 *.bak
 .DS_Store
-me_old.md
 
 # OpenCode runtime data
 opencode.db

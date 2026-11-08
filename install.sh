@@ -24,11 +24,16 @@ link() { # link <repo-relative-src> <absolute-dst>
 pull() { # pull <repo-relative-dst> <absolute-src>
   local dst="$REPO/$1" src="$2"
   [ -e "$src" ] || { echo "skip  $src (absent)"; return; }
+  if [ -L "$src" ]; then
+    echo "ok    $1 (live path is a symlink into this repo)"
+    return
+  fi
   mkdir -p "$(dirname "$dst")"
   cp "$src" "$dst"
   echo "pull  $src -> $1"
 }
 
+case "${1:-install}" in --*) set -- "${1#--}" ;; esac
 case "${1:-install}" in
   install)
     link opencode/opencode.json             "$HOME/.config/opencode/opencode.json"
