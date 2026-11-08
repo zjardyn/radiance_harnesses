@@ -1,6 +1,43 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "provider": {
+    "opencode": {
+      "models": {
+        "beam-free": {
+          "disabled": true
+        },
+        "big-pickle": {
+          "disabled": true
+        },
+        "crouton-alpha-free": {
+          "disabled": true
+        },
+        "deepseek-v4.1-flash-free": {
+          "disabled": true
+        },
+        "flint-40b-free": {
+          "disabled": true
+        },
+        "glm-5.3-flash-free": {
+          "disabled": true
+        },
+        "iceman-free": {
+          "disabled": true
+        },
+        "inkling-2-small-free": {
+          "disabled": true
+        },
+        "mimo-v2.6-flash-free": {
+          "disabled": true
+        },
+        "nemotron-3.5-lightning-free": {
+          "disabled": true
+        },
+        "nemotron-3.5-super-vl-free": {
+          "disabled": true
+        }
+      }
+    },
     "radiance": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Radiance",
@@ -36,41 +73,12 @@
               }
             }
           }
-        },
-        "gemma4-26b": {
-          "name": "Gemma 4 26B",
-          "limit": {
-            "context": 32768,
-            "output": 16384
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          }
-        },
-        "qwen35": {
-          "name": "Qwen 3.5",
-          "limit": {
-            "context": 131072,
-            "output": 16384
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          }
         }
       }
     }
   },
   "model": "radiance/swift15-flash-next:xhigh",
   "default_agent": "me",
-  "agent": {
-    "gemma": {
-      "mode": "primary",
-      "model": "radiance/gemma4-26b",
-      "prompt": "You are a direct, capable assistant. Keep answers short and plain.\n<!-- magic-context: skip -->"
-    }
-  },
   "compaction": {
     "auto": false,
     "prune": false
