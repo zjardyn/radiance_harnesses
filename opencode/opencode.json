@@ -16,8 +16,13 @@
             "output": 16384
           },
           "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "variants": {
             "low": {
@@ -38,14 +43,19 @@
           }
         },
         "gemma4-26b": {
-          "name": "Gemma 4 26B",
+          "name": "Gemma 4 26B (one card)",
           "limit": {
-            "context": 32768,
+            "context": 65536,
             "output": 16384
           },
           "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           }
         },
         "qwen35": {
@@ -55,8 +65,13 @@
             "output": 16384
           },
           "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           }
         }
       }
@@ -75,5 +90,8 @@
     "auto": false,
     "prune": false
   },
-  "plugin": ["@cortexkit/opencode-magic-context@latest"]
+  "plugin": [
+    "@cortexkit/opencode-magic-context@latest",
+    "@cortexkit/aft-opencode@0.63.5"
+  ]
 }

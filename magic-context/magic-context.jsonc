@@ -3,6 +3,7 @@
   "historian": {
     "opencode": { "model": "radiance/swift15-flash-next" }
   },
+  "allow_home_project": true,
   "prompt_surface": {
     "models": {
       "radiance/gemma4-26b": "light"
