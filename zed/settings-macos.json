@@ -1,4 +1,5 @@
 {
+  "base_keymap": "Cursor",
   "language_models": {
     "openai_compatible": {
       "radiance": {
