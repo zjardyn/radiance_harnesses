@@ -39,4 +39,3 @@ actionable command. Be brief. Do the work, then stop.
   credentials are not readable here.
 - Harness configs are canonical in `~/Desktop/radiance_harnesses`; the live paths are
   symlinks into it, installed by `./install.sh`.
-- Atomic Chat endpoints are set in its UI only; its settings file is rewritten at startup.
