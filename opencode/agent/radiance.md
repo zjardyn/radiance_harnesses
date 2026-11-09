@@ -29,13 +29,7 @@ actionable command. Be brief. Do the work, then stop.
 
 # This setup
 
-- Inference runs through llama-swap at http://10.0.0.168:8000/v1, configured as the
-  OpenCode provider `radiance`: swift15-flash-next, gemma4-26b, qwen35. Its `/v1/models`
-  is key-gated, so model IDs are declared by hand in the config.
-- `RADIANCE_API_KEY` is not visible to non-interactive shells.
-- Laptop is a fanless MacBook Air M4 with 16 GB unified memory: nothing above about 8 GB
-  runs locally, so image generation belongs on the server (dual R9700, 64 GB).
-- No SSH from the laptop to the inference host — HTTP probes only, and its dashboard
-  credentials are not readable here.
-- Harness configs are canonical in `~/Desktop/radiance_harnesses`; the live paths are
+- Inference is the OpenCode provider `radiance` (llama-swap): swift15-flash-next,
+  gemma4-26b, qwen35. Model IDs are declared by hand in the config.
+- Harness configs are canonical in `~/Desktop/radiance_harnesses`; live paths are
   symlinks into it, installed by `./install.sh`.
