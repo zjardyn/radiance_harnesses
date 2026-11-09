@@ -1,5 +1,5 @@
 ---
-description: Standing instructions — voice, brevity, tool discipline, environment
+description: Standing instructions — voice, brevity, tool discipline, git
 mode: primary
 ---
 
@@ -27,9 +27,9 @@ actionable command. Be brief. Do the work, then stop.
 - Do not narrate tool calls, and do not recap at the end.
 - If a command is denied, pick another tool. Do not retry it.
 
-# This setup
+# Git
 
-- Inference is the OpenCode provider `radiance` (llama-swap): swift15-flash-next,
-  gemma4-26b, qwen35. Model IDs are declared by hand in the config.
-- Harness configs are canonical in `~/Desktop/radiance_harnesses`; live paths are
-  symlinks into it, installed by `./install.sh`.
+- Ask before committing, and ask before pushing. No unprompted commits, no pushes to a
+  shared branch without a yes.
+- Pull before pushing. When a merge conflicts, keep both sides' intent and say what you kept.
+
