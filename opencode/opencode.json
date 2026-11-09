@@ -78,7 +78,7 @@
     }
   },
   "model": "radiance/swift15-flash-next:xhigh",
-  "default_agent": "me",
+  "default_agent": "radiance",
   "compaction": {
     "auto": false,
     "prune": false

@@ -38,6 +38,7 @@ case "${1:-install}" in
   install)
     link opencode/opencode.json             "$HOME/.config/opencode/opencode.json"
     link opencode/agent/me.md               "$HOME/.config/opencode/agent/me.md"
+    link opencode/agent/radiance.md         "$HOME/.config/opencode/agent/radiance.md"
     link magic-context/magic-context.jsonc  "$HOME/.config/cortexkit/magic-context.jsonc"
     if [ "$OS" = "Darwin" ]; then
       link zed/settings-macos.json          "$HOME/Library/Application Support/Zed/settings.json"
@@ -64,6 +65,7 @@ case "${1:-install}" in
   pull)
     pull opencode/opencode.json            "$HOME/.config/opencode/opencode.json"
     pull opencode/agent/me.md              "$HOME/.config/opencode/agent/me.md"
+    pull opencode/agent/radiance.md        "$HOME/.config/opencode/agent/radiance.md"
     pull magic-context/magic-context.jsonc "$HOME/.config/cortexkit/magic-context.jsonc"
     if [ "$OS" = "Darwin" ]; then
       pull zed/settings-macos.json         "$HOME/Library/Application Support/Zed/settings.json"
