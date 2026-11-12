@@ -15,7 +15,7 @@
             "reasoning": true
           },
           "limit": {
-            "context": 196608,
+            "context": 262144,
             "output": 16384
           },
           "modalities": {
@@ -85,12 +85,14 @@
   },
   "model": "radiance/swift15-flash-next:xhigh",
   "default_agent": "radiance",
+  "compaction": {
+    "auto": false,
+    "prune": false
+  },
+  "plugin": [
+    "@cortexkit/opencode-magic-context@latest"
+  ],
   "permissions": [
-    {
-      "action": "shell",
-      "resource": "*",
-      "effect": "allow"
-    },
     {
       "action": "shell",
       "resource": "ls*",
@@ -107,16 +109,19 @@
       "effect": "deny"
     },
     {
-      "action": "shell",
-      "resource": "cd*",
+      "action": "bash",
+      "resource": "ls*",
+      "effect": "deny"
+    },
+    {
+      "action": "bash",
+      "resource": "find*",
+      "effect": "deny"
+    },
+    {
+      "action": "bash",
+      "resource": "pwd*",
       "effect": "deny"
     }
-  ],
-  "compaction": {
-    "auto": false,
-    "prune": false
-  },
-  "plugin": [
-    "@cortexkit/opencode-magic-context@latest"
   ]
 }

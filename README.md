@@ -60,7 +60,7 @@ provider's ceiling un-compacted and the request is refused.
 
 | model | context | output | variants |
 | --- | --- | --- | --- |
-| `swift15-flash-next` | 196,608 | 16,384 | `low` / `medium` / `xhigh` (`reasoning_effort`) |
+| `swift15-flash-next` | 262,144 | 16,384 | `low` / `medium` / `xhigh` (`reasoning_effort`) |
 | `gemma4-26b` | 65,536 | 16,384 | `low` / `medium` / `xhigh`; not resident — reference entry only |
 
 `qwen35` and `qwen-image-2.1-turbo` are llama-swap capabilities, not agents. They stay
@@ -99,7 +99,7 @@ so Magic Context compresses its turns harder.
 ```sh
 opencode models                                          # radiance models, no opencode/ free models
 opencode api get /api/agent | grep -c '"id":"radiance"'   # agent registered
-jq '.provider.radiance.models["swift15-flash-next"].limit.context' ~/.config/opencode/opencode.json  # 196608
+jq '.provider.radiance.models["swift15-flash-next"].limit.context' ~/.config/opencode/opencode.json  # 262144
 ss -ltn | grep -c ':8000'                                 # provider up
 ```
 
