@@ -11,6 +11,9 @@
       "models": {
         "swift15-flash-next": {
           "name": "Swift 1.5 Flash-Next",
+          "capabilities": {
+            "reasoning": true
+          },
           "limit": {
             "context": 196608,
             "output": 16384
@@ -44,6 +47,9 @@
         },
         "gemma4-26b": {
           "name": "Gemma 4 26B",
+          "capabilities": {
+            "reasoning": true
+          },
           "limit": {
             "context": 65536,
             "output": 16384
@@ -79,6 +85,33 @@
   },
   "model": "radiance/swift15-flash-next:xhigh",
   "default_agent": "radiance",
+  "permissions": [
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "ls*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "find*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "pwd*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "cd*",
+      "effect": "deny"
+    }
+  ],
   "compaction": {
     "auto": false,
     "prune": false

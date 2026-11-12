@@ -1,56 +1,39 @@
 {
-  "base_keymap": "Cursor",
-  "language_models": {
-    "openai_compatible": {
-      "radiance": {
-        "api_url": "http://10.0.0.168:8000/v1",
-        "available_models": [
-          {
-            "name": "swift15-flash-next",
-            "display_name": "Swift 1.5 Flash-Next",
-            "max_tokens": 409600,
-            "max_output_tokens": 16384,
-            "reasoning_effort": "none",
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true,
-              "interleaved_reasoning": true,
-              "max_tokens_parameter": true
-            }
-          }
-        ]
-      }
-    }
+  "theme": {
+    "mode": "system"
   },
+  "buffer_font_size": 15,
+  "ui_font_size": 16,
+  "terminal": {
+    "font_size": 13
+  },
+  "base_keymap": "Cursor",
+  "vim_mode": true,
   "agent": {
-    "default_model": {
-      "provider": "radiance",
-      "model": "swift15-flash-next"
-    }
+    "thinking_display": "always_collapsed"
   },
   "agent_servers": {
-    "OpenCode Local": {
+    "opencode": {
       "type": "custom",
-      "command": "/opt/homebrew/bin/opencode",
+      "command": "python3",
       "args": [
+        "/Users/zjardynhood/.config/zed/acp-thought-filter.py",
+        "--",
+        "/opt/homebrew/bin/opencode",
         "acp"
       ],
       "env": {
-        "OPENCODE_DISABLE_FREE_MODELS": "1"
+        "OPENCODE_DISABLE_FREE_MODELS": "1",
+        "RADIANCE_BASE_URL": "http://10.0.0.168:8000/v1"
       },
       "default_config_options": {
-        "model": "radiance/swift15-flash-next:xhigh",
         "effort": "xhigh",
-        "mode": "build"
+        "model": "radiance/swift15-flash-next:xhigh"
       },
       "favorite_config_option_values": {
-        "effort": [
-          "low",
-          "medium",
-          "xhigh"
+        "model": [
+          "radiance/swift15-flash-next",
+          "radiance/gemma4-26b"
         ]
       }
     }

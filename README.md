@@ -9,7 +9,7 @@ symlinks into this repo, so `~/.config/...` **is** the tracked copy.
 
 | repo file | installs to | controls |
 | --- | --- | --- |
-| `opencode/opencode.json` | `~/.config/opencode/opencode.json` (box) | provider, model IDs, context/output limits, variants, default model, `default_agent`, plugins |
+| `opencode/opencode.json` | `~/.config/opencode/opencode.json` (box) | provider, model IDs, context/output limits, variants, default model, `default_agent`, `permissions`, plugins |
 | `opencode/opencode.laptop.json` | `~/.config/opencode/opencode.json` (laptop) | same, for the machine that reaches the box over the LAN |
 | `opencode/agent/radiance.md` | `~/.config/opencode/agent/radiance.md` | the system prompt: frontmatter = agent config, body = prompt |
 | `magic-context/magic-context.jsonc` | `~/.config/cortexkit/magic-context.jsonc` | historian model, `prompt_surface` per model |
@@ -52,6 +52,7 @@ it puts a dead entry in the model menu. Historian work runs on Swift itself at
 | `compaction.auto` / `compaction.prune` | `false` | Magic Context owns compaction |
 | `plugin` | `@cortexkit/opencode-magic-context@latest` | no code-intelligence plugin: its 17 tools spend a local model's budget that `read` / `grep` / `shell` already cover |
 | `provider.radiance.options.apiKey` | `{env:RADIANCE_API_KEY}` | never a literal in the file |
+| `permissions` | `shell` `*` allow, then `ls*` `find*` `pwd*` `cd*` deny | the agent walks the tree with `glob` / `grep` / `read` and runs commands with a `workdir` instead of `cd`; rules are ordered, last match wins, and the scanner checks every subcommand, so `cd /x && git status` is denied too |
 
 Declare the **real served window** in `limit.context`. OpenCode sizes its compaction
 trigger from that number, so an over-declared limit means the session reaches the
@@ -86,6 +87,10 @@ so Magic Context compresses its turns harder.
   embedding `models/` directory. Per-machine history; sharing it leaks project data.
 - `~/.cache/opencode/npm/` — installed plugin copies.
 - `secrets.env` — real `RADIANCE_API_KEY`. Gitignored; only `secrets.env.example` is tracked.
+- `~/.config/zed/settings.json` (live laptop agent env) and `~/.config/zed/sync-hosts.jsonc`
+  (per-remote server layer, untracked) — these carry the real `RADIANCE_API_KEY`. The tracked
+  `zed/settings-*.json` carry none: `sync-merge.py` merges the hosts layer over the base, so a
+  composed push gets the key from `sync-hosts.jsonc`, and the laptop's own live file keeps it.
 
 **This repo is public.** Nothing machine-specific, no paths to personal data, no keys.
 
