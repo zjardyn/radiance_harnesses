@@ -1,7 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
   "historian": {
-    "opencode": { "model": "radiance/swift15-flash-next" }
+    "maxTokens": 2048,
+    "opencode": {
+      "model": "radiance/swift15-flash-next",
+      "variant": "low"
+    }
   },
   "allow_home_project": true,
   "prompt_surface": {

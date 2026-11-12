@@ -11,8 +11,11 @@
       "models": {
         "swift15-flash-next": {
           "name": "Swift 1.5 Flash-Next",
+          "capabilities": {
+            "reasoning": true
+          },
           "limit": {
-            "context": 409600,
+            "context": 196608,
             "output": 16384
           },
           "modalities": {
@@ -44,34 +47,37 @@
         },
         "gemma4-26b": {
           "name": "Gemma 4 26B (one card)",
+          "capabilities": {
+            "reasoning": true
+          },
           "limit": {
             "context": 65536,
             "output": 16384
           },
           "modalities": {
             "input": [
-              "text",
-              "image"
+              "text"
             ],
             "output": [
               "text"
             ]
-          }
-        },
-        "qwen35": {
-          "name": "Qwen 3.5",
-          "limit": {
-            "context": 131072,
-            "output": 16384
           },
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
+          "variants": {
+            "low": {
+              "body": {
+                "reasoning_effort": "low"
+              }
+            },
+            "medium": {
+              "body": {
+                "reasoning_effort": "medium"
+              }
+            },
+            "xhigh": {
+              "body": {
+                "reasoning_effort": "xhigh"
+              }
+            }
           }
         }
       }
@@ -79,19 +85,11 @@
   },
   "model": "radiance/swift15-flash-next:xhigh",
   "default_agent": "radiance",
-  "agent": {
-    "gemma": {
-      "mode": "primary",
-      "model": "radiance/gemma4-26b",
-      "prompt": "You are a direct, capable assistant. Keep answers short and plain.\n<!-- magic-context: skip -->"
-    }
-  },
   "compaction": {
     "auto": false,
     "prune": false
   },
   "plugin": [
-    "@cortexkit/opencode-magic-context@latest",
-    "@cortexkit/aft-opencode@0.63.5"
+    "@cortexkit/opencode-magic-context@latest"
   ]
 }
