@@ -37,5 +37,39 @@
         ]
       }
     }
+  },
+  "auto_install_extensions": {
+    "latex": true
+  },
+  "lsp": {
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "executable": "pdflatex",
+            "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "%f"
+            ],
+            "onSave": true,
+            "forwardSearchAfter": true
+          },
+          "forwardSearch": {
+            "executable": "displayline",
+            "args": [
+              "-g",
+              "%l",
+              "%p",
+              "%f"
+            ]
+          },
+          "diagnostics": {
+            "delay": 300
+          }
+        }
+      }
+    }
   }
 }
