@@ -15,7 +15,7 @@
             "reasoning": true
           },
           "limit": {
-            "context": 262144,
+            "context": 229376,
             "output": 32768
           },
           "modalities": {
