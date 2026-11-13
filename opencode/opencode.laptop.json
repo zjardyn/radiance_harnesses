@@ -16,7 +16,7 @@
           },
           "limit": {
             "context": 262144,
-            "output": 16384
+            "output": 32768
           },
           "modalities": {
             "input": [
@@ -52,7 +52,7 @@
           },
           "limit": {
             "context": 65536,
-            "output": 16384
+            "output": 32768
           },
           "modalities": {
             "input": [
@@ -68,7 +68,7 @@
           "name": "Qwen 3.5",
           "limit": {
             "context": 131072,
-            "output": 16384
+            "output": 32768
           },
           "modalities": {
             "input": [
